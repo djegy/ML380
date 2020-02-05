@@ -1,0 +1,63 @@
+Installation:
+
+The HPE Management Component Pack (MCP) for Ubuntu 16.04/18.04 and Debian 9 is available as an online apt repository. Information for accessing this repository is available at:
+ http://downloads.linux.hpe.com/SDR/project/mcp
+
+Subscribe Deb-based systems to the mcp repository
+Cut-n-paste the following section (substituting distribution, architecture and project version) into /etc/apt/sources.list.d/mcp.list on your system:
+# HPE Management Component Pack
+deb http://downloads.linux.hpe.com/SDR/repo/mcp dist/project_ver non-free
+
+Where:
+   dist             buster, bionic, xenial, trusty, precise, stretch, jessie, squeeze
+   project_ver      current, 12.00, 11.30, 11.21, 11.05, 10.80, 10.60, 10.50, 10.40, 9.50
+        
+Install the HPE public gpg key
+http://downloads.linux.hpe.com/SDR/keys
+Enroll keys for DEB-based systems
+Issue the following commands to enroll all keys on your deb-based system:
+curl https://downloads.linux.hpe.com/SDR/hpPublicKey2048.pub | apt-key add -
+curl https://downloads.linux.hpe.com/SDR/hpPublicKey2048_key1.pub | apt-key add -
+curl https://downloads.linux.hpe.com/SDR/hpePublicKey2048_key1.pub | apt-key add -
+
+
+Update the local apt indexes
+# apt-get update
+
+Search for a specific package
+# apt-cache search <packagename> # browse debs
+
+Install a specific package
+# apt-get install <packagename>
+  
+Installing Individual Packages
+
+HP iLO online configuration utility:
+
+Hponcfg is a command line utility that can be used to configure iLO from within the operating system without requiring a reboot of the server. To install the hponcfg package, run:
+
+# apt-get install hponcfg
+
+Agentless Management Service (iLO 5) :
+
+Agentless Management Service (AMSD) provides support for HPE Integrated Lights-Out 5 (HPE iLO 5) Embedded Health and Alerting.
+ 
+# apt-get install amsd
+
+Smart Storage Administrator (SSA)
+
+If there is an older version of SSA  installed on the system, remove it first. To install the new version run:
+
+apt-get install ssa
+
+Smart Storage Administrator (SSA) CLI 
+
+The Smart Storage Administrator CLI (SSACLI) is a commandline-based disk configuration program that helps you configure, manage, diagnose, and monitor Smart Array Controllers.
+
+apt-get install ssacli
+
+Smart Storage Administrator Diagnostic Utility (SSADU) CLI
+
+The Smart Storage Administrator Diagnostic Utility CLI is a commandline-based disk configuration program for Smart Array Controllers
+
+apt-get install ssaducli 
